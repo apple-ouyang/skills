@@ -97,6 +97,10 @@ These word counts are approximate and you can feel free to go longer if needed.
 - Reference files clearly from SKILL.md with guidance on when to read them
 - For large reference files (>300 lines), include a table of contents
 
+**Resource placement:** Keep the core execution skeleton in `SKILL.md`: trigger intent, boundary, workflow, output contract, branch selection, and safety defaults. Put long examples, schemas, templates, policy detail, and domain-specific branches in `references/`. Put deterministic or repetitive work in `scripts/`. See `references/resource-boundaries.md` when deciding whether content should stay in `SKILL.md` or move into bundled resources.
+
+If a reference file must be read on every invocation, do not treat that split as progressive disclosure. Prefer compressing the critical rules back into `SKILL.md`; keep the separate reference only when independent maintenance, versioning, or review value justifies the extra read, and make the required read explicit from `SKILL.md`.
+
 **Domain organization**: When a skill supports multiple domains/frameworks, organize by variant:
 ```
 cloud-deploy/
