@@ -7,6 +7,12 @@ description: Create new skills, modify and improve existing skills, and measure 
 
 A skill for creating new skills and iteratively improving them.
 
+## 默认语言
+
+默认用简体中文提出问题、解释取舍、输出报告、总结结果，并撰写生成 skill 的正文说明；除非用户明确要求其它语言。代码标识、文件路径、YAML keys、JSON fields、命令名、包名和 API 术语保持 English。
+
+更新既有英文 skill 时，除非用户明确要求整篇翻译，否则不要自动翻译整个 skill。保留稳定契约，只补足能改变后续行为的最小语言规则。
+
 At a high level, the process of creating a skill goes like this:
 
 - Decide what you want the skill to do and roughly how it should do it
