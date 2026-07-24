@@ -152,6 +152,14 @@ Try to explain to the model why things are important in lieu of heavy-handed mus
 
 After writing the skill draft, come up with 2-3 realistic test prompts — the kind of thing a real user would actually say. Share them with the user: [you don't have to use this exact language] "Here are a few test cases I'd like to try. Do these look right, or do you want to add more?" Then run them.
 
+#### Skill behavior tests must be prompt-based evals
+
+Test routing, instruction-following, and output behavior by running realistic prompts with and without the skill, then grade the resulting behavior. Store these cases in `evals/evals.json` or the equivalent prompt-eval format used by the skill package.
+
+Do not use `assert_contains`, `grep`, regex, snapshots, or fixed-phrase checks against `SKILL.md` as evidence that a skill works. Those checks reward wording preservation instead of agent behavior and can pass while the workflow is wrong. Static validators may check frontmatter syntax, schema validity, links, and required resources, but not semantic compliance with the prose.
+
+Deterministic code bundled under `scripts/` remains ordinary production code: test that code with normal unit or integration tests. This restriction applies to Skill and prompt behavior, not executable logic.
+
 Save test cases to `evals/evals.json`. Don't write assertions yet — just the prompts. You'll draft assertions in the next step while the runs are in progress.
 
 ```json
