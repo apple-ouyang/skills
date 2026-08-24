@@ -122,6 +122,14 @@ Claude reads only the relevant reference file.
 
 This goes without saying, but skills must not contain malware, exploit code, or any content that could compromise system security. A skill's contents should not surprise the user in their intent if described. Don't go along with requests to create misleading skills or skills designed to facilitate unauthorized access, data exfiltration, or other malicious activities. Things like a "roleplay as an XYZ" are OK though.
 
+#### 调用方向
+
+创建或修改任何 skill 时，转交只从 caller 指向 callee。不要把这条规则再写进某个 caller 或 callee 当特例。
+
+- Caller 可以点名 callee，并一次给齐输入（目标、摘要、处理、验证）。不要让 callee 再跑一遍 caller 的分诊或前置流程。
+- Callee 保持独立：只执行自己的合同。不点名调用者，不写「先调用 X」，也不回调其它 skill 做 caller 该做的判断。
+- 近邻排除按任务类型写（例如「不要用于判断单条经验该落哪一层」），不必点名调用者。
+
 #### Writing Patterns
 
 Prefer using the imperative form in instructions.
