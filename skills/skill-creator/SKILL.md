@@ -70,7 +70,7 @@ Check available MCPs - if useful for research (searching docs, finding similar s
 Based on the user interview, fill in these components:
 
 - **name**: Skill identifier
-- **description**: When to trigger, what it does. This is the primary triggering mechanism - include both what the skill does AND specific contexts for when to use it. All "when to use" info goes here, not in the body. Note: currently Claude has a tendency to "undertrigger" skills -- to not use them when they'd be useful. To combat this, please make the skill descriptions a little bit "pushy". So for instance, instead of "How to build a simple fast dashboard to display internal Anthropic data.", you might write "How to build a simple fast dashboard to display internal Anthropic data. Make sure to use this skill whenever the user mentions dashboards, data visualization, internal metrics, or wants to display any kind of company data, even if they don't explicitly ask for a 'dashboard.'"
+- **description**: 只放触发面。一两句说这是什么，再列用户会说的触发词、典型场景，以及会误触发的近邻排除（别的 skill / 本会话就能做的活）。执行约束、提供商路由、默认模型、CLI 入口、额度降级、安全护栏一律写进正文，不要塞进 description。上游「All when to use info goes here」在这里收窄为：触发词进 description，怎么做进 body。写得 pushy 一点，避免漏触发：用户提到相关场景即使没点 skill 名也该加载。
 - **compatibility**: Required tools, dependencies (optional, rarely needed)
 - **the rest of the skill :)**
 

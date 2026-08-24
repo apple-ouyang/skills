@@ -8,11 +8,21 @@ Use this guide when deciding what belongs in `SKILL.md` versus bundled resources
 
 Progressive disclosure only saves context when extra files are loaded conditionally. If every invocation must read the same reference, the split is for maintenance, not context efficiency.
 
+## Frontmatter vs body
+
+YAML `description` is always in context. Put only the trigger surface there:
+
+- one-line what this skill is
+- user phrases, `$skill-name`, typical scenes
+- near-neighbor exclusions that prevent misfires
+
+Do not put execution policy in `description`: provider routing, default model slugs, CLI flags, quota fallbacks, safety guardrails, or step-by-step constraints. Those belong in the `SKILL.md` body so they load only after the skill triggers.
+
 ## Keep In `SKILL.md`
 
 Keep content in `SKILL.md` when it is:
 
-- part of the trigger surface or near-neighbor exclusions
+- part of the trigger surface or near-neighbor exclusions (`description` for triggers; body for how to execute)
 - part of the core execution skeleton
 - part of the output contract
 - necessary for branch selection
