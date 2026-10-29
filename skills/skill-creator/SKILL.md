@@ -1,6 +1,6 @@
 ---
 name: skill-creator
-description: Use to create or edit a Skill, refine its trigger description or workflow, and run prompt-based evals. Use `yao-meta-skill` for multi-skill portfolio migration, release, or governance.
+description: Use to create or edit a Skill, refine its trigger description or workflow, and run prompt-based evals.
 ---
 
 # Skill Creator
